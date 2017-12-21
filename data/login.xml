@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <DataDriver>
-    <login username="autoapi" password="123456"></login>>
+    <!--登陆-->
+    <login username="autoapi" password="123456"></login>
+    <!--正常添加商户-->
+    <shanghu acc="20171217" name="xian" password="12345678"
+             overnum="200" overmoney="500" overtime="300" phone="15691903617"
+             address="西安市雁塔区" des="111"></shanghu>
+    <!--异常添加商户数据-->
+    <errorshanghu acc="2017" name="xian" password="1234" phone="02932323" ></errorshanghu>
+    <!--异常添加账号校验信息-->
+    <erroraccount>账号 必须至少有 6 字符.</erroraccount>
+    <!--异常添加密码校验信息-->
+    <errorpass>商户密码 必须至少有 6 字符.</errorpass>
+    <!--异常添加电话校验信息-->
+    <errorphone>电话必须是11位手机号码</errorphone>
+    <!--编辑商户信息-->
+    <editshanghu overnum="100" overmoney="200" overtime="400"></editshanghu>
+    <!--编辑后的信息-->
+    <editfinish overnum="100次" overmoney="200元" overtime="400小时"></editfinish>
+    <!-- 删除商户-->
+    <nulltext>没有记录</nulltext>
+    <!--冻结商户-->
+    <freezetext>冻结</freezetext>
+    <!--激活商户-->
+    <activetext>激活</activetext>
+    <!--发劵限制-总数限制-->
+    <sumlimit>10</sumlimit>
 </DataDriver>
