@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataDriver>
+    <!--创建会议-->
+    <meetmanage title="meeting20180107" time1="2018-01-12 14:00" time2="2018-01-13 16:00"
+                time3="2018-01-12 15:00" time4="2018-03-24 19:00"
+                 address="西安市雁塔区丈八六路" num="20" des="王怡1111"></meetmanage>
+</DataDriver>
+

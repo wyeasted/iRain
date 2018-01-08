@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*-coding:utf-8-*-
 
-from selenium import webdriver
 from base.basepage import *
 from selenium.webdriver.common.by import By
 from reader.helper import *
@@ -30,12 +29,10 @@ class ShangHuTest(IrainPortal,DataHelper):
 
 	@property
 	def shgl(self):
-		t.sleep(3)
 		self.findElement(*self.shgl_loc).click()
 
 	@property
 	def shanghuname(self):
-		t.sleep(3)
 		return self.findElement(*self.shanghuname_loc).text
 
 	@property
@@ -58,61 +55,48 @@ class ShangHuTest(IrainPortal,DataHelper):
 
 	@property
 	def shanghu11(self):
-		self.wait()
 		self.findElement(*self.shanghuadd_loc).click()
 
 	def account(self,account):
-		self.wait()
 		self.findElement(*self.account_loc).send_keys(account)
 
 	def accountname(self,accountname):
-		self.wait()
 		self.findElement(*self.accountname_loc).send_keys(accountname)
 
 	def getaccountname(self):
-		self.wait()
 		return self.findElement(*self.accountname_loc).get_attribute('value')
 
 	def accountpass(self,accountpass):
-		self.wait()
 		self.findElement(*self.accountpass_loc).send_keys(accountpass)
 
 	@property
 	def usertype(self):
-		self.wait()
 		self.findElement(*self.usertype_loc).click()
 
 	def touzhinum(self,num):
-		self.wait()
 		self.findElement(*self.touzhinum_loc).clear()
 		self.findElement(*self.touzhinum_loc).send_keys(num)
 
 	def touzhimoney(self,money):
-		t.sleep(4)
 		self.findElement(*self.touzhimoney_loc).clear()
 		self.findElement(*self.touzhimoney_loc).send_keys(money)
 
 	def touzhitime(self,time):
-		t.sleep(4)
 		self.findElement(*self.touzhitime_loc).clear()
 		self.findElement(*self.touzhitime_loc).send_keys(time)
 
 	def phone(self,phone):
-		self.wait()
 		self.findElement(*self.phone_loc).send_keys(phone)
 
 	def address(self,address):
-		self.wait()
 		self.findElement(*self.address_loc).send_keys(address)
 
 	def description(self, dec):
-		self.wait()
 		self.findElement(*self.des_loc).send_keys(dec)
 
 	@property
 	def finish(self):
 		self.findElement(*self.finishadd_loc).click()
-		self.wait()
 
 	'''正常创建商户'''
 	def shanghuadd(self,parent='shanghu',account='acc',accountname='name',accountpass='password',
@@ -129,6 +113,7 @@ class ShangHuTest(IrainPortal,DataHelper):
 		self.address(self.getXmlUser(parent,address))
 		self.description(self.getXmlUser(parent,dec))
 		self.finish
+		t.sleep(3)
 		return name
 
 	'''创建商户时字段校验'''
@@ -151,15 +136,29 @@ class ShangHuTest(IrainPortal,DataHelper):
 		phone=self.findElement(*self.error_phone_loc).text
 		return phone
 
-	def err_shanghuadd(self,parent='errorshanghu',account='acc',accountname='name',accountpass='password',phone='phone'):
+	def err_shanghuadd1(self,parent='errorshanghu',account='acc',accountname='name',accountpass='password',phone='phone'):
 		self.shanghu11
-		t.sleep(3)
 		self.account(self.getXmlUser(parent, account))
 		self.accountname(self.getXmlUser(parent,accountname))
 		self.accountpass(self.getXmlUser(parent,accountpass))
 		self.phone(self.getXmlUser(parent,phone))
 		self.finish
 
+	def err_shanghuadd2(self,parent='errorshanghu2',account='acc',accountname='name',accountpass='password',phone='phone'):
+		self.shanghu11
+		self.account(self.getXmlUser(parent, account))
+		self.accountname(self.getXmlUser(parent,accountname))
+		self.accountpass(self.getXmlUser(parent,accountpass))
+		self.phone(self.getXmlUser(parent,phone))
+		self.finish
+
+	def err_shanghuadd3(self,parent='errorshanghu3',account='acc',accountname='name',accountpass='password',phone='phone'):
+		self.shanghu11
+		self.account(self.getXmlUser(parent, account))
+		self.accountname(self.getXmlUser(parent,accountname))
+		self.accountpass(self.getXmlUser(parent,accountpass))
+		self.phone(self.getXmlUser(parent,phone))
+		self.finish
 
 
 	'''删除商户元素页面属性'''
@@ -169,18 +168,15 @@ class ShangHuTest(IrainPortal,DataHelper):
 
 	@property
 	def delsel(self):
-		t.sleep(3)
 		self.findElement(*self.delsel_loc).click()
 
 	def shanghudel(self):
-		t.sleep(2)
 		self.findElement(*self.def_loc).click()
 		self.delsure()
+		t.sleep(3)
 
 	def delsure(self):
-		t.sleep(2)
 		self.findElement(*self.delsure_loc).click()
-		t.sleep(3)
 
 	def shanghudelete(self):
 		self.delsel
@@ -192,15 +188,12 @@ class ShangHuTest(IrainPortal,DataHelper):
 	dongjie_status = (By.XPATH,'//*[@id="app"]/div/div[1]/div[2]/div[2]/div/table/tbody/tr/td[3]/span')
 
 	def shanghudongjie(self):
-		t.sleep(2)
 		self.findElement(*self.dongjie_loc).click()
 		self.dongjiesure()
-		t.sleep(3)
+		t.sleep(2)
 
 	def dongjiesure(self):
-		t.sleep(2)
 		self.findElement(*self.dongjiesure_loc).click()
-		t.sleep(2)
 
 	@property
 	def dongjiestatus(self):
@@ -213,15 +206,13 @@ class ShangHuTest(IrainPortal,DataHelper):
 	jihuo_status = (By.XPATH,'//*[@id="app"]/div/div[1]/div[2]/div[2]/div/table/tbody/tr/td[3]/span')
 
 	def shanghujihuo(self):
-		t.sleep(2)
 		self.findElement(*self.jihuo_loc).click()
 		self.jihuosure()
-		t.sleep(3)
+		t.sleep(2)
+
 
 	def jihuosure(self):
-		t.sleep(2)
 		self.findElement(*self.jihuosure_loc).click()
-		t.sleep(2)
 
 	@property
 	def jihuostatus(self):
@@ -242,7 +233,7 @@ class ShangHuTest(IrainPortal,DataHelper):
 	@property
 	def namelink(self):
 		self.findElement(*self.accnamelink_loc).click()
-		t.sleep(3)
+		t.sleep(2)
 
 	@property
 	def edit(self):
@@ -251,56 +242,41 @@ class ShangHuTest(IrainPortal,DataHelper):
 	@property
 	def editsave(self):
 		self.findElement(*self.editsave_loc).click()
+		t.sleep(3)
 
 	def inputnum(self,num):
-		t.sleep(3)
 		self.findElement(*self.inputnum_loc).clear()
 		self.findElement(*self.inputnum_loc).send_keys(num)
-		t.sleep(3)
-
-	# def gettouzhinum(self):
-	# 	self.wait()
-	# 	initnum=self.findElement(*self.inputnum_loc).get_attribute('value')
-	# 	return initnum
 
 	def inputmoney(self,money):
-		t.sleep(3)
 		self.findElement(*self.inputmoney_loc).click()
 		self.findElement(*self.inputmoney_loc).clear()
 		self.findElement(*self.inputmoney_loc).send_keys(money)
-		t.sleep(3)
 
-	# def gettouzhimoney(self):
-	# 	self.wait()
-	# 	initmoney=self.findElement(*self.inputmoney_loc).get_attribute('value')
 
 	def inputtime(self,time):
-		t.sleep(3)
 		self.findElement(*self.inputtime_loc).click()
 		self.findElement(*self.inputtime_loc).clear()
 		self.findElement(*self.inputtime_loc).send_keys(time)
 
-	# def gettouzhitime(self):
-	# 	self.wait()
-	# 	inittime=self.findElement(*self.inputtime_loc).get_attribute('value')
-	# 	return inittime
-
 	@property
 	def getnum(self):
-		return self.findElement(*self.getnum_loc).text
+		num=self.findElement(*self.getnum_loc).text
+		return num
 
 	@property
 	def getmoney(self):
-		return self.findElement(*self.getmoney_loc).text
+		money=self.findElement(*self.getmoney_loc).text
+		return money
 
 	@property
 	def gettime(self):
-		return self.findElement(*self.gettime_loc).text
+		time=self.findElement(*self.gettime_loc).text
+		return time
 
 
 	def editshanghu(self,parent='editshanghu',num='overnum',money='overmoney',time='overtime'):
 		self.namelink
-		t.sleep(3)
 		self.edit
 		self.inputnum(self.getXmlUser(parent,num))
 		self.inputmoney(self.getXmlUser(parent,money))
@@ -319,32 +295,27 @@ class ShangHuTest(IrainPortal,DataHelper):
 	@property
 	def fajuan(self):
 		self.findElement(*self.fajuan_loc).click()
-		t.sleep(3)
 
 	@property
 	def sumlimit(self):
-		t.sleep(3)
 		self.findElement(*self.sumlimit_loc).click()
-		t.sleep(2)
 
 	@property
 	def sumselect(self):
-		t.sleep(2)
 		self.findElement(*self.sumselect_loc).click()
 
 
 	def sumtext(self,value='sumlimit'):
 		self.findElement(*self.sumtext_loc).send_keys(self.getXmlData(value))
-		t.sleep(3)
 
 	@property
 	def getsumtext(self):
-		return self.findElement(*self.sumtext_loc).get_attribute('value')
+		name=self.findElement(*self.sumtext_loc).get_attribute('value')
+		return name
 
 	@property
 	def summonth(self):
 		self.findElement(*self.summonth_loc).click()
-		t.sleep(2)
 
 	@property
 	def fajuansave(self):

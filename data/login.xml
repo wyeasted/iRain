@@ -6,8 +6,12 @@
     <shanghu acc="20171217" name="xian" password="12345678"
              overnum="200" overmoney="500" overtime="300" phone="15691903617"
              address="西安市雁塔区" des="111"></shanghu>
-    <!--异常添加商户数据-->
-    <errorshanghu acc="2017" name="xian" password="1234" phone="02932323" ></errorshanghu>
+    <!--异常添加商户数据-账户长度错误-->
+    <errorshanghu acc="2017" name="xiantest" password="password123" phone="02933445566" ></errorshanghu>
+    <!--异常添加商户数据-密码长度错误-->
+    <errorshanghu2 acc="2017010203" name="xiantest" password="pass" phone="02933445566" ></errorshanghu2>
+     <!--异常添加商户数据-电话长度错误-->
+    <errorshanghu3 acc="2017010203" name="xiantest" password="password" phone="02933" ></errorshanghu3>
     <!--异常添加账号校验信息-->
     <erroraccount>账号 必须至少有 6 字符.</erroraccount>
     <!--异常添加密码校验信息-->

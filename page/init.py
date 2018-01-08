@@ -8,11 +8,17 @@ import unittest
 
 class PortalTest(unittest.TestCase,LoginTest):
 
-	def setUp(self):
-		self.driver=webdriver.Firefox()
-		self.driver.maximize_window()
-		self.driver.implicitly_wait(30)
-		self.driver.get('http://eco.parkingwang.com/#/login')
+	@classmethod
+	def setUpClass(cls):
+		cls.driver = webdriver.Firefox()
+		cls.driver.maximize_window()
+		cls.driver.implicitly_wait(30)
+		cls.driver.get('http://eco.parkingwang.com/#/login')
 
-	def tearDown(self):
-		self.driver.quit()
+	@classmethod
+	def tearDownClass(cls):
+		cls.driver.quit()
+
+	def script(self,info):
+		self.driver.execute_script(info)
+

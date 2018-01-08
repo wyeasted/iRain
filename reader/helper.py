@@ -18,3 +18,10 @@ class DataHelper(object):
 		itemlist = db.getElementsByTagName(parent)
 		item = itemlist[0]
 		return item.getAttribute(child)
+
+	def getXmlUser1(self,parent, child):
+		dom = xml.dom.minidom.parse(os.path.join(os.path.dirname(os.path.dirname(__file__)),'data','meeting.xml'))
+		db = dom.documentElement
+		itemlist = db.getElementsByTagName(parent)
+		item = itemlist[0]
+		return item.getAttribute(child)
